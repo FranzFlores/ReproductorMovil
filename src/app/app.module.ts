@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule }    from '@angular/common/http';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
     IonicModule.forRoot(), 
     AppRoutingModule,
     HttpClientModule,
+    AuthModule
   ],
   providers: [
     StatusBar,
