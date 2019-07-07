@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController, NavController } from '@ionic/angular';
+import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { AlertService } from 'src/app/services/alert.service';
+
 
 @Component({
   selector: 'app-login',
@@ -7,7 +12,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private modalController: ModalController,
+    private authService: AuthService,
+    private navCtrl: NavController,
+    private alertService: AlertService
+  ) { }
+
+  //Desaparecer el modal de Loign
+  dismissLogin() {
+    this.modalController.dismiss();
+  }
+
+  login(form: NgForm) {
+    
+    this.authService.login(form.value.email, form.value.password).subscribe(
+      data => {
+        this.alertService.presentToast("Logged In");
+      },
+      error => {
+        console.log(error);
+      },
+      () => {
+        this.dismissLogin();
+        this.navCtrl.navigateRoot('/dashboard');
+      }
+    );
+  }
+
 
   ngOnInit() {
   }
