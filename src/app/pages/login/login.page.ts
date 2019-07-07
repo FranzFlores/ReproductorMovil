@@ -28,14 +28,14 @@ export class LoginPage implements OnInit {
     
     this.authService.login(form.value.email, form.value.password).subscribe(
       data => {
-        this.alertService.presentToast("Logged In");
+        this.alertService.presentToast("Inicio de Sesión Correcto");
       },
       error => {
         console.log(error);
       },
       () => {
         this.dismissLogin();
-        this.navCtrl.navigateRoot('/dashboard');
+        this.navCtrl.navigateRoot('/menu');
       }
     );
   }

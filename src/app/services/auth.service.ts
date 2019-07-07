@@ -29,10 +29,7 @@ export class AuthService {
                 console.log("token guardado");
               },
               error => console.error("Error al guardar", error)
-            ).catch((err)=>{
-              console.log(err);
-              
-            });
+            );
           this.token = token;
           this.isLoggedIn = true;
           return token;
