@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
 import { EnvService } from './env.service';
 import { User } from '../models/user';
 
@@ -15,11 +15,10 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private storage: NativeStorage,
     private env: EnvService
   ) { }
 
-  login(email: String, password: String) {
+/*  login(email: String, password: String) {
     return this.http.post(`${this.env.API_URL}/user/login`, { email: email, password: password,getHash: true })
       .pipe(
         tap(token => {
@@ -80,5 +79,5 @@ export class AuthService {
         this.isLoggedIn = false;
       }
     );
-  }
+  }*/
 }
