@@ -1,11 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Todas las Canciones</ion-title>
+    <ion-title class="center-align">Todas las Canciones</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  
+
+  <ion-item *ngFor="let song of songService.songs">
+    <ion-avatar slot="start">
+      <img src="http://localhost:3000/album/get-image-album/{{song.album.image}}">
+    </ion-avatar>
+    <ion-label>
+      {{song.title}}
+      <p>{{song.album.artist.name}}</p>
+    </ion-label>
+  </ion-item>
+
+  <ion-tabs>
+   <audio src="http://localhost:3000/song/get-file-album/" ></audio>
+    </ion-tabs>
 
 </ion-content>
