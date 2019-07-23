@@ -7,6 +7,8 @@ import { Storage } from '@ionic/storage';
 import { User } from './user';
 import { AuthResponse } from './auth-response';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,13 +20,15 @@ export class AuthService {
   constructor(private  httpClient:  HttpClient, private  storage:  Storage) { }
 
   login(user: User): Observable<AuthResponse> {
-    return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/user/login`, user).pipe(
+    return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/user/loginApp`, user).pipe(
       tap(async (res: AuthResponse) => {
 
         if (res.user) {
           await this.storage.set("ACCESS_TOKEN", res.user.access_token);
           await this.storage.set("EXPIRES_IN", res.user.expires_in);
           this.authSubject.next(true);
+        }else{
+
         }
       })
     );
