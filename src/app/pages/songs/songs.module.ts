@@ -5,23 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MenuPage } from './menu.page';
+import { SongsPage } from './songs.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: MenuPage,
-    children:[
-      {
-        path:'song',
-        loadChildren:'../songs/songs.module#SongsPageModule'
-      }
-    ]
-  },
-  {
-    path: '',
-    redirectTo: '/menu',
-    pathMatch:'full' 
+    component: SongsPage
   }
 ];
 
@@ -32,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [MenuPage]
+  declarations: [SongsPage]
 })
-export class MenuPageModule {}
+export class SongsPageModule {}

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-// import {Song} from './song';
+import { Song } from '../models/song';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +9,11 @@ import { HttpClient } from '@angular/common/http';
 export class SongService {
 
   AUTH_SERVER_ADDRESS: string = 'http://localhost:3000';
-  //songs: Song[];
+  songs: Song[];
 
-  constructor(private  httpClient:  HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  getSongs(){
+  getSongs() {
     return this.httpClient.get(`${this.AUTH_SERVER_ADDRESS}/song/songs`);
   }
-
 }

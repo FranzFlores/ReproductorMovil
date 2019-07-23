@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {SongService} from '../song.service';
-import {Song} from '../song';
+///import {Song} from '../song';
 
 @Component({
   selector: 'app-all-songs',
@@ -19,7 +19,7 @@ export class AllSongsPage implements OnInit {
   getSongs(){
     this.songService.getSongs()
       .subscribe(res=>{
-        this.songService.songs = res as Song[];
+       // this.songService.songs = res as Song[];
       });
   }
 
