@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 
-import { EnvService } from './env.service';
-import { User } from '../models/user';
+// import { EnvService } from './env.service';
+// import { User } from '../models/user';
 
 
 @Injectable({
@@ -15,7 +15,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private env: EnvService
+    // private env: EnvService
   ) { }
 
 /*  login(email: String, password: String) {

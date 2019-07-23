@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import {SongService} from '../song.service';
+import {Song} from '../song';
+
 @Component({
   selector: 'app-all-songs',
   templateUrl: './all-songs.page.html',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllSongsPage implements OnInit {
 
-  constructor() { }
+  constructor(private songService:SongService) { }
 
   ngOnInit() {
+    this.getSongs();
+  }
+
+  getSongs(){
+    this.songService.getSongs()
+      .subscribe(res=>{
+        this.songService.songs = res as Song[];
+      });
   }
 
 }
