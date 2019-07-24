@@ -16,4 +16,9 @@ export class SongService {
   getSongs() {
     return this.httpClient.get(`${this.AUTH_SERVER_ADDRESS}/song/songs`);
   }
+
+  getSong(external){
+    return this.httpClient.get(`${this.AUTH_SERVER_ADDRESS}/song/`+ external);
+  }
+
 }
