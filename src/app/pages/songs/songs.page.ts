@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { SongService } from 'src/app/services/song.service';
 import { Song } from 'src/app/models/song';
+import * as $ from 'jquery';
 
 
 @Component({
@@ -11,13 +12,15 @@ import { Song } from 'src/app/models/song';
 export class SongsPage implements OnInit {
 
   song:Song;
+  audio;
+  
+
 
   constructor(private songService:SongService) { }
 
   ngOnInit() {
     this.getSongs();
     $('.pause').hide();
-
   }
 
   getSongs(){
@@ -31,13 +34,12 @@ export class SongsPage implements OnInit {
     this.songService.getSong(file)
       .subscribe(res=>{
          this.song = res as Song;
-         console.log(this.song);
-         
+         this.audio=new Audio('http://localhost:3000/song/get-song-file/'+this.song.file);
+         this.audio.play();
         //$('#player').attr('src','http://localhost:3000/song/get-song-file/'+this.song.file);
         $('.play').hide();
         $('.pause').show();
-        $('.title').text((this.song.title).toString()+" - "+ (this.song.album.artist.name).toString());
-        
+        $('.title').text( (this.song.title).toString()+" - "+ (this.song.album.artist.name).toString());
       });
   }
 
@@ -46,12 +48,12 @@ export class SongsPage implements OnInit {
     if($('.pause').attr('data-active')=="false"){
       $('.play').show();
       $('.pause').hide();
-     
+      this.audio.pause();
       $('.pause').attr('data-active',"true");
     } else{
       $('.play').hide();
       $('.pause').show();
-      
+      this.audio.play();
       $('.pause').attr('data-active',"false");
     }
   }
