@@ -39,7 +39,7 @@ export class SongsPage implements OnInit {
         //$('#player').attr('src','http://localhost:3000/song/get-song-file/'+this.song.file);
         $('.play').hide();
         $('.pause').show();
-        $('.title').text( (this.song.title).toString()+" - "+ (this.song.album.artist.name).toString());
+       // $('.title').text( (this.song.title).toString()+" - "+ (this.song.album.artist.name).toString());
       });
   }
 
