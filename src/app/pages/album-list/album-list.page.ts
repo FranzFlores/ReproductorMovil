@@ -20,7 +20,7 @@ export class AlbumListPage implements OnInit {
 
   getAlbums(){
     this.albumService.getAlbums()
-    .subscribe(res=>{
+    .subscribe(res=>{      
       this.albumService.albums = res as Album[];
     })
   }
