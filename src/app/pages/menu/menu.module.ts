@@ -29,6 +29,10 @@ const routes: Routes = [
         loadChildren:'../playlist/playlist.module#PlaylistPageModule'
       },
       {
+        path:'playlist/details/:external',
+        loadChildren:'../playlist-songs/playlist-songs.module#PlaylistSongsPageModule'
+      },
+      {
         path:'logOut',
         loadChildren:'../songs/songs.module#SongsPageModule'
       },
