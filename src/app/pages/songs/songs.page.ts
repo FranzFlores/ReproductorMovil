@@ -12,8 +12,6 @@ import * as $ from 'jquery';
 export class SongsPage implements OnInit {
 
   song:Song;
-  audio;
-  
 
 
   constructor(private songService:SongService) { }
@@ -48,12 +46,12 @@ export class SongsPage implements OnInit {
     if($('.pause').attr('data-active')=="false"){
       $('.play').show();
       $('.pause').hide();
-      this.audio.pause();
+     
       $('.pause').attr('data-active',"true");
     } else{
       $('.play').hide();
       $('.pause').show();
-      this.audio.play();
+      
       $('.pause').attr('data-active',"false");
     }
   }
