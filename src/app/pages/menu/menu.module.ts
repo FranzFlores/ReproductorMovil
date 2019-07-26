@@ -13,9 +13,26 @@ const routes: Routes = [
     component: MenuPage,
     children:[
       {
+        path:'artist',
+        loadChildren:'../artist-list/artist-list.module#ArtistListPageModule'
+      },
+      {
+        path:'album',
+        loadChildren:'../album-list/album-list.module#AlbumListPageModule'
+      },
+      {
         path:'song',
         loadChildren:'../songs/songs.module#SongsPageModule'
-      }
+      },
+      {
+        path:'playlist',
+        loadChildren:'../playlist/playlist.module#PlaylistPageModule'
+      },
+      {
+        path:'logOut',
+        loadChildren:'../songs/songs.module#SongsPageModule'
+      },
+
     ]
   },
   {
