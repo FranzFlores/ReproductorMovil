@@ -1,9 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>playlist</ion-title>
+    <ion-title>Playlists</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-item *ngFor="let playlist of playlistService.playlists" class="item" (click)="play(playlist.external_id)">
+    <ion-avatar slot="start">
+      <img src="http://localhost:3000/playlist/get-image-playlist/{{playlist.image}}">
+    </ion-avatar>
+    <ion-label>
+      <p>{{playlist.title}}</p>
+    </ion-label>
+  </ion-item>
 </ion-content>
