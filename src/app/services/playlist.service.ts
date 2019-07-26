@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
  
 import { Playlist } from '../models/playlist';
+import { Song } from '../models/song';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class PlaylistService {
 
   AUTH_SERVER_ADDRESS: string = 'http://localhost:3000';
   playlists: Playlist[];
+  songs: Song[];
 
   constructor(private httpClient: HttpClient) { }
 
@@ -20,5 +22,10 @@ export class PlaylistService {
   getPlaylist(external){
     return this.httpClient.get(`${this.AUTH_SERVER_ADDRESS}/playlist/`+ external);
   }
+
+  getPlaylistSongs(external){
+    return this.httpClient.get(`${this.AUTH_SERVER_ADDRESS}/playlist/songsList/`+ external);
+  }
+
 
 }
