@@ -12,7 +12,7 @@ import { HttpClientModule }    from '@angular/common/http';
 
 
 import { AuthModule } from './auth/auth.module';
-import { SongModule } from './song/song.module';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +23,6 @@ import { SongModule } from './song/song.module';
     AppRoutingModule,
     HttpClientModule,
     AuthModule,
-    SongModule
   ],
   providers: [
     StatusBar,
