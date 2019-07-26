@@ -1,9 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>artist-list</ion-title>
+    <ion-title class="center-align">Lista de Artistas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-item *ngFor="let artist of  artistService.artists" class="item">
+    <ion-avatar slot="start">
+      <img src="https://localhost:3000/artist/get-image-artist/{{artist.imagen}}">
+    </ion-avatar>
+    <ion-label>
+      <p>{{artist.name}}</p>
+    </ion-label>
+  </ion-item>
 </ion-content>
