@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 <<<<<<< develop
+<<<<<<< develop
  
 import { Playlist } from '../models/playlist';
 import { Song } from '../models/song';
 =======
 
+=======
+ 
+>>>>>>> Configuraciones de Pagina Playlist
 import { Playlist } from '../models/playlist';
 >>>>>>> Servicio Plaulist
 
