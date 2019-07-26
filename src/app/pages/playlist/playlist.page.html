@@ -10,10 +10,14 @@
 
 <ion-content>
 <<<<<<< develop
+<<<<<<< develop
   <ion-item *ngFor="let playlist of playlistService.playlists" class="item" (click)="openDetails(playlist.external_id)">
 =======
   <ion-item *ngFor="let playlist of playlistService.playlists" class="item" (click)="play(playlist.external_id)">
 >>>>>>> Vista de Playlist
+=======
+  <ion-item *ngFor="let playlist of playlistService.playlists" class="item" (click)="openDetails(playlist.external_id)">
+>>>>>>> Vista de Canciones de Playlist
     <ion-avatar slot="start">
       <img src="http://localhost:3000/playlist/get-image-playlist/{{playlist.image}}">
     </ion-avatar>
