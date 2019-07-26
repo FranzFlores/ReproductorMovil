@@ -38,7 +38,7 @@ export class SongsPage implements OnInit {
          this.audio.play();
         $('.play').hide();
         $('.pause').show();
-        $('.title').text( (this.song.title).toString()+" - "+ (this.song.album.artist.name).toString());
+       // $('.title').text( (this.song.title).toString()+" - "+ (this.song.album.artist.name).toString());
       });
   }
 
