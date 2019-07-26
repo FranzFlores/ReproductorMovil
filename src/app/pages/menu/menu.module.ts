@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { MenuPage } from './menu.page';
 
+
 const routes: Routes = [
   {
     path: '',

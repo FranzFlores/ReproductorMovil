@@ -4,6 +4,7 @@ export class Song {
     number:Number;
     file:String;
     image:String;
+    external_id:String;
     album:String;
     artist:String;
 }
