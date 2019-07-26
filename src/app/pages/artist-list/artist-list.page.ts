@@ -9,9 +9,10 @@ import * as $ from 'jquery';
   styleUrls: ['./artist-list.page.scss'],
 })
 export class ArtistListPage implements OnInit {
+
   artist:Artist;
 
-  constructor(private artistService:ArtistService) { }
+  constructor(private artistService: ArtistService) { }
 
   ngOnInit() {
     this.getArtists();
@@ -19,7 +20,7 @@ export class ArtistListPage implements OnInit {
 
   getArtists(){
     this.artistService.getArtists().subscribe(res=>{
-      this.artistService.artists=res as Artist[];
-    });
+      this.artistService.artists = res as Artist[];
+    }); 
   }
 }
