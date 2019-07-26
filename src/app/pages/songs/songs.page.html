@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="center-align">Canciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let song of songService.songs" class="item" (click)="play(song.external_id)">
+    <ion-avatar slot="start">
+      <img src="http://localhost:3000/album/get-image-album/{{song.album.image}}">
+    </ion-avatar>
+    <ion-label>
+      {{song.title}}
+      <p>{{song.album.artist.name}}</p>
+    </ion-label>
+  </ion-item>
+
+  <div class="player">
+    <ion-icon name="play" size="large" class="play button" (click)="pause()"></ion-icon>
+    <ion-icon name="pause" size="large" class="pause button" data-active="false" (click)="pause()"></ion-icon>
+    <ion-label class="title">
+    </ion-label>
+    <audio src="" id="player" class="work" autoplay controls hidden></audio>
+  </div>
+</ion-content>
+
