@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren:'../album-list/album-list.module#AlbumListPageModule'
       },
       {
+        path:'album/details/:external',
+        loadChildren:'../album-songs/album-songs.module#AlbumSongsPageModule'
+      },
+      {
         path:'song',
         loadChildren:'../songs/songs.module#SongsPageModule'
       },
