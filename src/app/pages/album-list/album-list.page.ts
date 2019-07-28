@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlbumService } from 'src/app/services/album.service';
 import { Album } from 'src/app/models/album';
+
 import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-album-list',
@@ -12,7 +15,7 @@ export class AlbumListPage implements OnInit {
 
   album:Album;
 
-  constructor(private albumService:AlbumService) { }
+  constructor(private albumService:AlbumService,private router:Router) { }
 
   ngOnInit() {
     this.getAlbums();
@@ -23,6 +26,10 @@ export class AlbumListPage implements OnInit {
     .subscribe(res=>{      
       this.albumService.albums = res as Album[];
     })
+  }
+
+  openDetails(external){
+    this.router.navigateByUrl("album/details/"+external);
   }
 
 }
