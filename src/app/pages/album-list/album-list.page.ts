@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AlbumService } from 'src/app/services/album.service';
 import { Album } from 'src/app/models/album';
+import {SongService} from 'src/app/services/song.service';
+import {Song} from 'src/app/models/song';
 
 import * as $ from 'jquery';
 
@@ -14,8 +16,13 @@ import * as $ from 'jquery';
 export class AlbumListPage implements OnInit {
 
   album:Album;
+  public external_id: string;
 
-  constructor(private albumService:AlbumService,private router:Router) { }
+  constructor(
+    private activetedRoute: ActivatedRoute,
+    private albumService:AlbumService,
+    private router:Router
+    ) { }
 
   ngOnInit() {
     this.getAlbums();
@@ -27,6 +34,8 @@ export class AlbumListPage implements OnInit {
       this.albumService.albums = res as Album[];
     })
   }
+
+
 
   openDetails(external){
     this.router.navigateByUrl("/menu/album/details/"+external);
