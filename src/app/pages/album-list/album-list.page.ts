@@ -29,7 +29,7 @@ export class AlbumListPage implements OnInit {
   }
 
   openDetails(external){
-    this.router.navigateByUrl("album/details/"+external);
+    this.router.navigateByUrl("/menu/album/details/"+external);
   }
 
 }

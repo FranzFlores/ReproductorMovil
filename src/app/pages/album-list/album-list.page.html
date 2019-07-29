@@ -5,7 +5,7 @@
 </ion-header>
 <ion-grid>
   <ion-row>
-    <ion-col size="6" *ngFor="let album of albumService.albums">
+    <ion-col size="6" *ngFor="let album of albumService.albums" (click)="openDetails(album.external_id)">
         <img class="img-thumbnail" src="http://localhost:3000/album/get-image-album/{{album.image}}"  >
         <ion-label class="label">
           <p class="album">{{album.title}}</p> 
