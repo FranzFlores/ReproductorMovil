@@ -27,16 +27,6 @@ export class PlaylistPage implements OnInit {
     this.playlistService.getPlaylists().subscribe(res => {
       this.playlistService.playlists = res as Playlist[];
     })
-<<<<<<< HEAD
-<<<<<<< develop
-  }
-
-  openDetails(external){
-    this.router.navigateByUrl("/menu/playlist/details/"+external);
-=======
->>>>>>> Configuraciones de Pagina Playlist
-=======
->>>>>>> playlist
   }
 
   openDetails(external){
