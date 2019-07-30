@@ -1,3 +1,5 @@
+import {Album} from './album';
+
 export class Song {
     id: String;
     title:String;
@@ -5,6 +7,6 @@ export class Song {
     file:String;
     image:String;
     external_id:String;
-    album:String;
+    album:Album;
     artist:String;
 }
