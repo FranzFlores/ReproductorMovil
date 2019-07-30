@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from 'src/app/services/playlist.service';
 import { Playlist } from 'src/app/models/playlist';
 import * as $ from 'jquery';
+<<<<<<< HEAD
 <<<<<<< develop
 <<<<<<< develop
 import { Router } from '@angular/router';
@@ -10,6 +11,9 @@ import { Router } from '@angular/router';
 =======
 import { Router } from '@angular/router';
 >>>>>>> Vista de Canciones de Playlist
+=======
+import { Router } from '@angular/router';
+>>>>>>> playlist
 
 @Component({
   selector: 'app-playlist',
@@ -20,6 +24,7 @@ export class PlaylistPage implements OnInit {
 
   playlist: Playlist;
 
+<<<<<<< HEAD
 <<<<<<< develop
 <<<<<<< develop
   constructor(private playlistService: PlaylistService,private router: Router) { }
@@ -29,6 +34,9 @@ export class PlaylistPage implements OnInit {
 =======
   constructor(private playlistService: PlaylistService,private router: Router) { }
 >>>>>>> Vista de Canciones de Playlist
+=======
+  constructor(private playlistService: PlaylistService,private router: Router) { }
+>>>>>>> playlist
 
   ngOnInit() {
     this.getPlaylists();
@@ -38,6 +46,7 @@ export class PlaylistPage implements OnInit {
     this.playlistService.getPlaylists().subscribe(res => {
       this.playlistService.playlists = res as Playlist[];
     })
+<<<<<<< HEAD
 <<<<<<< develop
   }
 
@@ -45,6 +54,8 @@ export class PlaylistPage implements OnInit {
     this.router.navigateByUrl("/menu/playlist/details/"+external);
 =======
 >>>>>>> Configuraciones de Pagina Playlist
+=======
+>>>>>>> playlist
   }
 
   openDetails(external){
