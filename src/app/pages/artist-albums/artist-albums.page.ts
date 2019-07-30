@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { ArtistService } from 'src/app/services/artist.service';
+import { Artist } from 'src/app/models/artist';
+import { Album } from 'src/app/models/album';
+
+
 
 @Component({
   selector: 'app-artist-albums',
@@ -7,9 +14,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArtistAlbumsPage implements OnInit {
 
-  constructor() { }
+  private  external_id: string;
+  private artist:Artist;
+
+  constructor(
+    private activetedRoute: ActivatedRoute,
+    private artistService: ArtistService
+  ) { }
 
   ngOnInit() {
+    this.getArtistAlbums();
+  }
+
+  getArtistAlbums(){
+    this.external_id = this.activetedRoute.snapshot.paramMap.get('external');
+    this.artistService.getArtist(this.external_id)
+      .subscribe(res =>{
+        this.artist = res as Artist;
+        this.artistService.albums = res.albums as Album[];
+      });
   }
 
 }

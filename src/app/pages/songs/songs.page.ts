@@ -12,6 +12,7 @@ import * as $ from 'jquery';
 export class SongsPage implements OnInit {
 
   song:Song;
+  audio;
 
 
   constructor(private songService:SongService) { }

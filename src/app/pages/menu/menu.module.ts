@@ -18,6 +18,10 @@ const routes: Routes = [
         loadChildren:'../artist-list/artist-list.module#ArtistListPageModule'
       },
       {
+        path:'artist/details/:external',
+        loadChildren:'../artist-albums/artist-albums.module#ArtistAlbumsPageModule'
+      },
+      {
         path:'album',
         loadChildren:'../album-list/album-list.module#AlbumListPageModule'
       },

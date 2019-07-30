@@ -12,7 +12,7 @@ import { Album } from 'src/app/models/album';
 })
 export class AlbumSongsPage implements OnInit {
 
-  public external_id: string;
+  private  external_id: string;
   private audio;
   private song: Song;
   private album:Album;

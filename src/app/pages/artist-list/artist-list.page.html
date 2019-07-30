@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-item *ngFor="let artist of  artistService.artists" class="item">
+  <ion-item *ngFor="let artist of artistService.artists" class="item" (click)="openDetails(artist.external_id)">
     <ion-avatar slot="start">
       <img src="http://localhost:3000/artist/get-image-artist/{{artist.image}}">
     </ion-avatar>
