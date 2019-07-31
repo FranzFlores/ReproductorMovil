@@ -37,7 +37,7 @@ export class SongsPage implements OnInit {
          this.audio.play();
         $('.play').hide();
         $('.pause').show();
-       // $('.title').text( (this.song.title).toString()+" - "+ (this.song.album.artist.name).toString());
+        $('.title').text( (this.song.title).toString()+" - "+ (this.song.album.artist.name).toString());
       });
   }
 
@@ -46,12 +46,12 @@ export class SongsPage implements OnInit {
     if($('.pause').attr('data-active')=="false"){
       $('.play').show();
       $('.pause').hide();
-     
+      this.audio.pause();
       $('.pause').attr('data-active',"true");
     } else{
       $('.play').hide();
       $('.pause').show();
-      
+      this.audio.play();
       $('.pause').attr('data-active',"false");
     }
   }

@@ -31,7 +31,7 @@ export class AlbumSongsPage implements OnInit {
     this.external_id = this.activetedRoute.snapshot.paramMap.get('external');
     this.albumService.getAlbumSongs(this.external_id)
     .subscribe(res =>{
-      this.album = res as Album;
+      this.album = res as unknown as Album;
       this.albumService.songs = res.songs as Song[];    
     });
   }
@@ -39,7 +39,7 @@ export class AlbumSongsPage implements OnInit {
   play(file) {
     this.songService.getSong(file)
       .subscribe(res => {
-        this.song = res as Song;
+        this.song = res as unknown as Song;
         this.audio = new Audio('http://localhost:3000/song/get-song-file/' + this.song.file);
         this.audio.play();
         $('.play').hide();
