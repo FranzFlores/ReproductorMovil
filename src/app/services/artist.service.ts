@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Artist } from '../models/artist';
 import { Album } from '../models/album';
+import { Song } from '../models/song';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class ArtistService {
   AUTH_SERVER_ADDRESS: string = 'http://localhost:3000';
   artists: Artist[];
   albums: Album[];
+  songs: Song[];
 
   constructor(private httpClient: HttpClient) { }
 

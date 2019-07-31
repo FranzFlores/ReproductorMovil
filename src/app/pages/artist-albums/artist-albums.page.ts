@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ArtistService } from 'src/app/services/artist.service';
 import { Artist } from 'src/app/models/artist';
@@ -19,6 +19,7 @@ export class ArtistAlbumsPage implements OnInit {
 
   constructor(
     private activetedRoute: ActivatedRoute,
+    private router:Router,
     private artistService: ArtistService
   ) { }
 
@@ -33,6 +34,10 @@ export class ArtistAlbumsPage implements OnInit {
         this.artist = res as Artist;
         this.artistService.albums = res.albums as Album[];
       });
+  }
+
+  openDetails(external){
+    this.router.navigateByUrl("/menu/artist/detailsAlbum/"+external);
   }
 
 }

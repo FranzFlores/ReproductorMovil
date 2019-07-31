@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren:'../artist-albums/artist-albums.module#ArtistAlbumsPageModule'
       },
       {
+        path:'artist/detailsAlbum/:external_id',
+        loadChildren:'../artist-album-songs/artist-album-songs.module#ArtistAlbumSongsPageModule'
+      },
+      {
         path:'album',
         loadChildren:'../album-list/album-list.module#AlbumListPageModule'
       },
