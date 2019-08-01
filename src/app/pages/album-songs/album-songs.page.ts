@@ -25,6 +25,7 @@ export class AlbumSongsPage implements OnInit {
 
   ngOnInit() {
     this.getAlbumSongs();
+    $(".pause").hide();
   }
 
   getAlbumSongs(){

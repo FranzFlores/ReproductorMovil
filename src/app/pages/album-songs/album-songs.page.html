@@ -1,16 +1,16 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start" defaultHref="/album">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Canciones</ion-title>
+    <ion-title>{{album.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-item *ngFor="let song of albumService.songs" class="item" (click)="play(song.external_id)">
     <ion-avatar slot="start">
-      <img src="http://localhost:3000/album/get-image-album/{{album.external_id}}">
+      <img src="http://localhost:3000/album/get-image-album/{{album.image}}">
     </ion-avatar>
     <ion-label>
       {{song.title}}
