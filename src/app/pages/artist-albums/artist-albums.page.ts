@@ -32,7 +32,7 @@ export class ArtistAlbumsPage implements OnInit {
     this.artistService.getArtist(this.external_id)
       .subscribe(res =>{
         this.artist = res as Artist;
-        this.artistService.albums = res.albums as Album[];
+        this.artistService.albums = this.artist.albums as Album[];
       });
   }
 

@@ -1,4 +1,5 @@
 import { Artist } from './artist';
+import { Song } from './song';
 
 export class Album {
     id: String;
@@ -9,4 +10,5 @@ export class Album {
     year:Number;
     status:Boolean;
     image:String;
+    songs: Song[];
 }

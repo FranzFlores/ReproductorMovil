@@ -41,7 +41,7 @@ export class ArtistAlbumSongsPage implements OnInit {
     this.albumService.getAlbum(this.external_id)
       .subscribe(res=>{
         this.album = res as Album;
-        this.albumService.songs = res.songs as Song[]; 
+        this.albumService.songs = this.album.songs as Song[]; 
       });
   }
 
