@@ -4,6 +4,7 @@ import * as $ from 'jquery';
 
 import { ArtistService } from 'src/app/services/artist.service';
 import { SongService} from 'src/app/services/song.service';
+import { PlayerService } from 'src/app/services/player.service';
 import { Artist } from 'src/app/models/artist';
 import { Album } from 'src/app/models/album';
 import { Song } from 'src/app/models/song';
@@ -26,7 +27,8 @@ export class ArtistAlbumSongsPage implements OnInit {
     private activetedRoute: ActivatedRoute,
     private artistService: ArtistService,
     private songService: SongService,
-    private albumService: AlbumService
+    private albumService: AlbumService,
+    private playerService: PlayerService
   ) { }
 
   ngOnInit() {
@@ -34,7 +36,33 @@ export class ArtistAlbumSongsPage implements OnInit {
     $('.pause').hide();
   }
 
-  
+  play(file) {
+    this.songService.getSong(file)
+      .subscribe(res => {
+        this.song = res as unknown as Song;
+        this.audio = new Audio('http://localhost:3000/song/get-song-file/' + this.song.file);
+        this.audio.play();
+        $('.play').hide();
+        $('.pause').show();
+        $('.title').text((this.song.title).toString()+" - "+ (this.song.album.artist.name).toString());
+      });
+  }
+
+  pause() {
+    if ($('.pause').attr('data-active') == "false") {
+      this.audio.pause();
+      $('.play').show();
+      $('.pause').hide();
+      $('.pause').attr('data-active', 'true');
+    }
+     else {
+      $('.play').hide();
+      $('.pause').show();
+      this.audio.play();
+      $('.pause').attr('data-active', 'false');
+    }
+  }
+
 
   getAlbumSongs(){
     this.external_id = this.activetedRoute.snapshot.paramMap.get('external_id');
@@ -43,33 +71,6 @@ export class ArtistAlbumSongsPage implements OnInit {
         this.album = res as Album;
         this.albumService.songs = this.album.songs as Song[]; 
       });
-  }
-
-  play(file){
-    this.songService.getSong(file)
-      .subscribe(res=>{
-         this.song = res as Song;
-         this.audio=new Audio('http://localhost:3000/song/get-song-file/'+this.song.file);
-         this.audio.play();
-        $('.play').hide();
-        $('.pause').show();
-        $('.title').text((this.song.title).toString()+" - "+ (this.song.album.artist.name).toString());
-      });
-  }
-
- 
-  pause(){
-    if($('.pause').attr('data-active')=="false"){
-      $('.play').show();
-      $('.pause').hide();
-      this.audio.pause();
-      $('.pause').attr('data-active',"true");
-    } else{
-      $('.play').hide();
-      $('.pause').show();
-      this.audio.play();
-      $('.pause').attr('data-active',"false");
-    }
   }
 
 }

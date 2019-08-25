@@ -1,21 +1,29 @@
 <ion-content>
   <ion-tabs>
+
+    <!-- <div class="player">
+      <ion-icon name="play" size="large" class="play button" (click)="pause()"></ion-icon>
+      <ion-icon name="pause" size="large" class="pause button" data-active="false" (click)="pause()"></ion-icon>
+      <ion-label class="title">
+      </ion-label>
+    </div> -->
+
     <ion-tab-bar slot="bottom">
       <ion-tab-button tab="artist">
         <ion-icon name="person"></ion-icon>
         <ion-label>Artista</ion-label>
       </ion-tab-button>
-  
+
       <ion-tab-button tab="album">
         <ion-icon name="disc"></ion-icon>
         <ion-label>Álbum</ion-label>
       </ion-tab-button>
-  
+
       <ion-tab-button tab="song">
         <ion-icon name="musical-note"></ion-icon>
         <ion-label>Canción</ion-label>
       </ion-tab-button>
-  
+
       <ion-tab-button tab="playlist">
         <ion-icon name="list-box"></ion-icon>
         <ion-label>PlayList</ion-label>
